@@ -28,3 +28,11 @@ redirection or pipes):
     red	3.99
     yellow	2.49
 
+If you specify the -t option, then you will receive the field names too:
+
+    tsvcut -t color price < fruits.tsv
+
+    color	blue	price	1.99
+    color	red	price	3.99
+    color	yellow	price	2.49
+
