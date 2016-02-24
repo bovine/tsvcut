@@ -6,7 +6,7 @@ a TSV (tab separated values) file and return just those values.  Its
 behavior is inspired by the UNIX cut(1) command, but is specifically
 tailored for the TSV file format.
 
-All TSV input files are expected to be lines separated by alternating
+All TSV input files are expected to be lines of alternating
 key-value pairs that are separated by tab characters.  The ordering of
 fields can be vary between lines, as long as consistent field names
 are used.  Some lines may include fields that are not present on other
