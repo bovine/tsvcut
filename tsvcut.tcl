@@ -8,7 +8,7 @@ if {[lindex $::argv] eq "-t"} {
 		array set tsv [split $line "\t"]
 		set result {}
 		foreach term $::argv {
-			if {[info exists $tsv($term)]} {
+			if {[info exists tsv($term)]} {
 				lappend result $term $tsv($term)
 			}
 		}
@@ -21,7 +21,7 @@ if {[lindex $::argv] eq "-t"} {
 		array set tsv [split $line "\t"]
 		set result {}
 		foreach term $::argv {
-			if {[info exists $tsv($term)]} {
+			if {[info exists tsv($term)]} {
 				lappend result $tsv($term)
 			} else {
 				lappend result ""
