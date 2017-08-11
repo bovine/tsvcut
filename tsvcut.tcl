@@ -1,6 +1,6 @@
 #!/usr/local/bin/tclsh
 
-if {[lindex $::argv] eq "-t"} {
+if {[lindex $::argv 0] eq "-t"} {
 	# output column identifiers
 	set ::argv [lrange $::argv 1 end]
 	while {[gets stdin line] >= 0} {
