@@ -7,10 +7,7 @@ set cols {}
 
 # read the entire input and compute maximum column widths.
 while {[gets stdin line] >= 0} {
-	array unset tsv
-	array set tsv [split $line "\t"]
-
-	foreach {key value} [array get tsv] {
+	foreach {key value} [split $line "\t"] {
 		
 		if {![info exists width($key)]} {
 			set width($key) [string length $key]
@@ -29,9 +26,12 @@ if {$rows == ""} {
 	exit 0
 }
 
+puts "cols = $cols"
+
 # print the dotted separator line.
 set separator "+"
-foreach {key size} [array get width] {
+foreach key $cols {
+	set size $width($key)
 	append separator [string repeat "-" [expr {$size + 2}]]
 	append separator "+"
 }
@@ -39,7 +39,8 @@ puts $separator
 
 # print the header row.
 set result {}
-foreach {key size} [array get width] {
+foreach key $cols {
+	set size $width($key)
 	lappend result [format "%-*s" $size $key]
 }
 puts "| [join $result { | }] |"
@@ -53,7 +54,8 @@ foreach line $rows {
 	array set tsv [split $line "\t"]
 
 	set result {}
-	foreach {key size} [array get width] {
+	foreach key $cols {
+		set size $width($key)
 		if {[info exists tsv($key)]} {
 			lappend result [format "%-*s" $size $tsv($key)]
 		} else {
