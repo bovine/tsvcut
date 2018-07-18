@@ -26,8 +26,6 @@ if {$rows == ""} {
 	exit 0
 }
 
-puts "cols = $cols"
-
 # print the dotted separator line.
 set separator "+"
 foreach key $cols {
